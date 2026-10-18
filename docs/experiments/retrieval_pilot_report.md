@@ -2,9 +2,11 @@
 
 **Protocol:** Controlled three-arm comparative study on frozen outcome-independent pilot subset.
 - **Dataset Fingerprint (SHA256):** `da1c89d31006ac65753d31fcb719b457ce5cb000e14e0735126018a90e350858`
+- **Subset Fingerprint (SHA256):** `8ec75aa2de6fdac6ad35fc2feaebb0a04b47816bd26cc7b1b28325e528bf1d52` *(Pre-A6c uncorrected fingerprint: `c80e728afdec46dbec6ad3e0663199d5ff3babd9550b29b80de7803907fe40d1`)*
 - **Raw Rows SHA256:** `ab348fe92029fa3b5a2d52b1fa2e71916bb43ead7a84deb067cb2495f74ac589`
 - **Evaluated Cases (N):** 5
 - **Context Budget:** 4000 tokens (CharDiv4TokenCounter)
+- **Revision Alignment Audit:** In pre-A6c commit `f42a61b`, four revision entries in `a6c_subset.json` carried 8-char prefixes with corrupt/mismatched trailing hex characters that failed git checkout. These were corrected to the true 40-character base revisions from `eval/cases/requests_swe_bench_candidates.json`. The 5 selected case IDs, criteria, and ground-truth functions were preserved without change.
 
 ---
 
