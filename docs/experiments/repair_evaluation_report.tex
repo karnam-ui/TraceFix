@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Experimental Arm} & \textbf{Hit@5} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Patch Gen.} & \textbf{Verified Pass} & \textbf{Mean Tokens} \\
+\midrule
+Arm A (Lexical BM25) & 33.3% & 33.3% & 0.333 & 100.0% & 100.0% & 143 \\
+Arm B (Graph-Guided) & 33.3% & 33.3% & 0.333 & 100.0% & 100.0% & 143 \\
+Arm C (Graph + Verified Memory) & 33.3% & 33.3% & 0.333 & 100.0% & 100.0% & 327 \\
+\bottomrule
+\end{tabular}
+\caption{Comparative evaluation results for Multi-Arm Retrieval and Memory Comparative Study across 3 arms on frozen dataset fingerprint \texttt{da1c89d31006...}.}
+\label{tab:tracefix_multi-arm_retrieval_and_memory_comparative_study}
+\end{table*}

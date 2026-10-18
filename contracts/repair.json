@@ -1,0 +1,109 @@
+{
+  "contract": "tracefix.repair",
+  "version": "0.1.0-draft",
+  "status": "draft-pending-workstream-b-review",
+  "checkpoint": "0-D-B1",
+  "note": "DRAFT. Repair orchestration, state machine transitions, patch format, and safety validation policy owned by Workstream B.",
+  "state_machine": {
+    "states": [
+      "RECEIVED",
+      "CONTEXT_READY",
+      "PATCH_GENERATED",
+      "PATCH_VALIDATED",
+      "VERIFICATION_RUNNING",
+      "VERIFIED",
+      "FAILED",
+      "REJECTED"
+    ],
+    "initial_state": "RECEIVED",
+    "terminal_states": ["VERIFIED", "FAILED", "REJECTED"],
+    "allowed_transitions": [
+      {"from": "RECEIVED", "to": "CONTEXT_READY"},
+      {"from": "CONTEXT_READY", "to": "PATCH_GENERATED"},
+      {"from": "PATCH_GENERATED", "to": "PATCH_VALIDATED"},
+      {"from": "PATCH_VALIDATED", "to": "VERIFICATION_RUNNING"},
+      {"from": "VERIFICATION_RUNNING", "to": "VERIFIED"},
+      {"from": "VERIFICATION_RUNNING", "to": "PATCH_GENERATED", "condition": "retry_on_test_failure_when_attempts_remain"},
+      {"from": "VERIFICATION_RUNNING", "to": "FAILED"},
+      {"from": "PATCH_GENERATED", "to": "FAILED", "condition": "generation_fatal_or_timeout"},
+      {"from": "PATCH_GENERATED", "to": "REJECTED", "condition": "patch_safety_violation"},
+      {"from": "PATCH_VALIDATED", "to": "REJECTED", "condition": "patch_safety_violation"},
+      {"from": "PATCH_GENERATED", "to": "PATCH_GENERATED", "condition": "retry_on_transient_provider_error"}
+    ],
+    "invariants": [
+      "No silent failure-to-success transitions.",
+      "Terminal states are immutable.",
+      "Every retry must increment attempt_number and record an explicit retry_reason.",
+      "Retries are bounded by max_retries policy (default 2)."
+    ]
+  },
+  "repair_request": {
+    "case_id": "string",
+    "repo": "normalized repository URL",
+    "base_revision": "full git SHA of pre-fix state",
+    "bug_report": "string issue/problem statement",
+    "context_manifest": "tracefix.context_manifest object",
+    "configuration": {
+      "model_provider": "string (e.g. mock, openrouter, anthropic)",
+      "model_name": "string identifier",
+      "temperature": "float >= 0.0",
+      "max_tokens": "int > 0",
+      "max_retries": "int >= 0",
+      "timeout_seconds": "int > 0"
+    }
+  },
+  "candidate_patch": {
+    "patch_id": "string; sha256 of unified diff",
+    "raw_diff": "string; standard unified diff (diff --git a/... b/...)",
+    "files_touched": ["posix path relative to repo root"],
+    "hunk_count": "int > 0",
+    "lines_added": "int >= 0",
+    "lines_deleted": "int >= 0",
+    "format": "unified_diff",
+    "source_model": "string identifier",
+    "created_at": "ISO-8601 UTC"
+  },
+  "patch_validation_policy": {
+    "path_rules": [
+      "All file paths must resolve within repository root.",
+      "Reject absolute paths (/...) and drive letters (C:\\...).",
+      "Reject path traversal sequences (../ or ..\\)."
+    ],
+    "prohibited_files": [
+      ".git/*",
+      ".github/*",
+      ".circleci/*",
+      ".travis.yml",
+      "*.env*",
+      "*.pem",
+      "*.key",
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg",
+      "tox.ini"
+    ],
+    "bounds": {
+      "max_changed_files": 5,
+      "max_changed_lines": 200,
+      "max_hunks_per_file": 10
+    },
+    "syntax_check": "Unified diff must parse cleanly and match target file lines at base_revision."
+  },
+  "repair_result": {
+    "case_id": "string",
+    "base_revision": "full git SHA",
+    "final_state": "VERIFIED | FAILED | REJECTED",
+    "candidate_patch": "optional candidate_patch object",
+    "verification_result": "optional tracefix.verification result object",
+    "attempts_made": "int >= 1",
+    "retry_history": [
+      {
+        "attempt": "int",
+        "reason": "string",
+        "timestamp": "ISO-8601 UTC"
+      }
+    ],
+    "duration_seconds": "float >= 0.0",
+    "failure_reason": "optional string explaining terminal FAILED or REJECTED state"
+  }
+}

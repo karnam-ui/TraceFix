@@ -191,3 +191,29 @@ def to_jsonable(value: Any) -> Any:
             "multi_function_policy": value.multi_function_policy,
         }
     return value
+
+
+def rate(numerator: int, denominator: int) -> float | None:
+    """Bounded rate computation; None when denominator is 0 (undefined, not zero)."""
+    if numerator < 0:
+        raise ValueError("numerator must be >= 0")
+    if denominator < 0:
+        raise ValueError("denominator must be >= 0")
+    if denominator == 0:
+        return None
+    return numerator / denominator
+
+
+def repair_success_rate(verified_count: int, evaluated_count: int) -> float | None:
+    """Fraction of evaluated cases that achieved verified repair status."""
+    return rate(verified_count, evaluated_count)
+
+
+def patch_generation_rate(generated_count: int, evaluated_count: int) -> float | None:
+    """Fraction of evaluated cases where a candidate patch was generated."""
+    return rate(generated_count, evaluated_count)
+
+
+def patch_validation_rate(validated_count: int, evaluated_count: int) -> float | None:
+    """Fraction of evaluated cases where a candidate patch passed validation."""
+    return rate(validated_count, evaluated_count)

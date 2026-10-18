@@ -1,0 +1,472 @@
+{
+  "arms": {
+    "arm_a_lexical": {
+      "arm_id": "arm_a_lexical",
+      "arm_name": "Arm A (Lexical BM25)",
+      "cases_evaluated": 3,
+      "cases_excluded": 0,
+      "cases_failed": 0,
+      "cases_localizable": 3,
+      "cases_total": 3,
+      "description": "Conventional lexical BM25 retrieval without graph or incident memory",
+      "hit_at_k_denominator": {
+        "10": 3,
+        "20": 3,
+        "5": 3
+      },
+      "hit_at_k_macro": {
+        "10": 0.3333333333333333,
+        "20": 0.3333333333333333,
+        "5": 0.3333333333333333
+      },
+      "mean_context_tokens": 143.0,
+      "mean_repair_duration_seconds": 0.0,
+      "mean_retrieval_latency_ms": 35.0,
+      "memories_accumulated": 0,
+      "mrr_macro": 0.3333333333333333,
+      "patch_generated_rate": 1.0,
+      "patch_validated_rate": 1.0,
+      "recall_at_k_denominator": {
+        "10": 15,
+        "20": 15,
+        "5": 15
+      },
+      "recall_at_k_macro": {
+        "10": 0.3333333333333333,
+        "20": 0.3333333333333333,
+        "5": 0.3333333333333333
+      },
+      "recall_at_k_micro": {
+        "10": 0.06666666666666667,
+        "20": 0.06666666666666667,
+        "5": 0.06666666666666667
+      },
+      "verified_repair_rate": 1.0
+    },
+    "arm_b_graph": {
+      "arm_id": "arm_b_graph",
+      "arm_name": "Arm B (Graph-Guided)",
+      "cases_evaluated": 3,
+      "cases_excluded": 0,
+      "cases_failed": 0,
+      "cases_localizable": 3,
+      "cases_total": 3,
+      "description": "Graph-guided neighborhood expansion without incident memory",
+      "hit_at_k_denominator": {
+        "10": 3,
+        "20": 3,
+        "5": 3
+      },
+      "hit_at_k_macro": {
+        "10": 0.3333333333333333,
+        "20": 0.3333333333333333,
+        "5": 0.3333333333333333
+      },
+      "mean_context_tokens": 143.0,
+      "mean_repair_duration_seconds": 0.0,
+      "mean_retrieval_latency_ms": 65.0,
+      "memories_accumulated": 0,
+      "mrr_macro": 0.3333333333333333,
+      "patch_generated_rate": 1.0,
+      "patch_validated_rate": 1.0,
+      "recall_at_k_denominator": {
+        "10": 15,
+        "20": 15,
+        "5": 15
+      },
+      "recall_at_k_macro": {
+        "10": 0.3333333333333333,
+        "20": 0.3333333333333333,
+        "5": 0.3333333333333333
+      },
+      "recall_at_k_micro": {
+        "10": 0.06666666666666667,
+        "20": 0.06666666666666667,
+        "5": 0.06666666666666667
+      },
+      "verified_repair_rate": 1.0
+    },
+    "arm_c_graph_memory": {
+      "arm_id": "arm_c_graph_memory",
+      "arm_name": "Arm C (Graph + Verified Memory)",
+      "cases_evaluated": 3,
+      "cases_excluded": 0,
+      "cases_failed": 0,
+      "cases_localizable": 3,
+      "cases_total": 3,
+      "description": "Graph-guided retrieval augmented with chronological verified incident memory",
+      "hit_at_k_denominator": {
+        "10": 3,
+        "20": 3,
+        "5": 3
+      },
+      "hit_at_k_macro": {
+        "10": 0.3333333333333333,
+        "20": 0.3333333333333333,
+        "5": 0.3333333333333333
+      },
+      "mean_context_tokens": 327.0,
+      "mean_repair_duration_seconds": 0.0,
+      "mean_retrieval_latency_ms": 65.0,
+      "memories_accumulated": 3,
+      "mrr_macro": 0.3333333333333333,
+      "patch_generated_rate": 1.0,
+      "patch_validated_rate": 1.0,
+      "recall_at_k_denominator": {
+        "10": 15,
+        "20": 15,
+        "5": 15
+      },
+      "recall_at_k_macro": {
+        "10": 0.3333333333333333,
+        "20": 0.3333333333333333,
+        "5": 0.3333333333333333
+      },
+      "recall_at_k_micro": {
+        "10": 0.06666666666666667,
+        "20": 0.06666666666666667,
+        "5": 0.06666666666666667
+      },
+      "verified_repair_rate": 1.0
+    }
+  },
+  "case_results": {
+    "arm_a_lexical": [
+      {
+        "arm_id": "arm_a_lexical",
+        "case_id": "psf__requests-1142",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": 1,
+        "ground_truth_functions_count": 1,
+        "hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "incident_id": null,
+        "memory_added": false,
+        "mrr": 1.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 1.0
+        },
+        "relevant_ranks": [
+          1
+        ],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 35.0,
+        "retrieved_items_count": 2,
+        "revision": "22623bd8c265b78b161542663ee980738441c307",
+        "status": "ok",
+        "verified": true
+      },
+      {
+        "arm_id": "arm_a_lexical",
+        "case_id": "psf__requests-1327",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": null,
+        "ground_truth_functions_count": 2,
+        "hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "incident_id": null,
+        "memory_added": false,
+        "mrr": 0.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "relevant_ranks": [],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 35.0,
+        "retrieved_items_count": 2,
+        "revision": "e7786ec14fdf20e8c373eddc9ac0f67d211cb1b9",
+        "status": "ok",
+        "verified": true
+      },
+      {
+        "arm_id": "arm_a_lexical",
+        "case_id": "psf__requests-1339",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": null,
+        "ground_truth_functions_count": 12,
+        "hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "incident_id": null,
+        "memory_added": false,
+        "mrr": 0.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "relevant_ranks": [],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 35.0,
+        "retrieved_items_count": 2,
+        "revision": "ab36f3cc6f91f1e4903a3f4b31501cb7fefe4555",
+        "status": "ok",
+        "verified": true
+      }
+    ],
+    "arm_b_graph": [
+      {
+        "arm_id": "arm_b_graph",
+        "case_id": "psf__requests-1142",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": 1,
+        "ground_truth_functions_count": 1,
+        "hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "incident_id": null,
+        "memory_added": false,
+        "mrr": 1.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 1.0
+        },
+        "relevant_ranks": [
+          1
+        ],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 65.0,
+        "retrieved_items_count": 2,
+        "revision": "22623bd8c265b78b161542663ee980738441c307",
+        "status": "ok",
+        "verified": true
+      },
+      {
+        "arm_id": "arm_b_graph",
+        "case_id": "psf__requests-1327",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": null,
+        "ground_truth_functions_count": 2,
+        "hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "incident_id": null,
+        "memory_added": false,
+        "mrr": 0.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "relevant_ranks": [],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 65.0,
+        "retrieved_items_count": 2,
+        "revision": "e7786ec14fdf20e8c373eddc9ac0f67d211cb1b9",
+        "status": "ok",
+        "verified": true
+      },
+      {
+        "arm_id": "arm_b_graph",
+        "case_id": "psf__requests-1339",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": null,
+        "ground_truth_functions_count": 12,
+        "hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "incident_id": null,
+        "memory_added": false,
+        "mrr": 0.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "relevant_ranks": [],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 65.0,
+        "retrieved_items_count": 2,
+        "revision": "ab36f3cc6f91f1e4903a3f4b31501cb7fefe4555",
+        "status": "ok",
+        "verified": true
+      }
+    ],
+    "arm_c_graph_memory": [
+      {
+        "arm_id": "arm_c_graph_memory",
+        "case_id": "psf__requests-1142",
+        "context_tokens_used": 143,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": 1,
+        "ground_truth_functions_count": 1,
+        "hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "incident_id": "inc_3c9922c5afe6c32b",
+        "memory_added": true,
+        "mrr": 1.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 1.0
+        },
+        "relevant_ranks": [
+          1
+        ],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 65.0,
+        "retrieved_items_count": 2,
+        "revision": "22623bd8c265b78b161542663ee980738441c307",
+        "status": "ok",
+        "verified": true
+      },
+      {
+        "arm_id": "arm_c_graph_memory",
+        "case_id": "psf__requests-1327",
+        "context_tokens_used": 327,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": null,
+        "ground_truth_functions_count": 2,
+        "hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "incident_id": "inc_d0e5f372c5fbf0d6",
+        "memory_added": true,
+        "mrr": 0.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "relevant_ranks": [],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 65.0,
+        "retrieved_items_count": 2,
+        "revision": "e7786ec14fdf20e8c373eddc9ac0f67d211cb1b9",
+        "status": "ok",
+        "verified": true
+      },
+      {
+        "arm_id": "arm_c_graph_memory",
+        "case_id": "psf__requests-1339",
+        "context_tokens_used": 511,
+        "evaluated": true,
+        "excluded_reason": null,
+        "failure_reason": null,
+        "final_state": "VERIFIED",
+        "first_relevant_rank": null,
+        "ground_truth_functions_count": 12,
+        "hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "incident_id": "inc_effbfa446d4e296a",
+        "memory_added": true,
+        "mrr": 0.0,
+        "patch_generated": true,
+        "patch_validated": true,
+        "recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "relevant_ranks": [],
+        "repair_duration_seconds": 0.0,
+        "repair_retries": 0,
+        "retrieval_latency_ms": 65.0,
+        "retrieved_items_count": 2,
+        "revision": "ab36f3cc6f91f1e4903a3f4b31501cb7fefe4555",
+        "status": "ok",
+        "verified": true
+      }
+    ]
+  },
+  "case_set_fingerprint": "da1c89d31006ac65753d31fcb719b457ce5cb000e14e0735126018a90e350858",
+  "created_at": "2026-10-17T18:25:30.355382+00:00",
+  "experiment_name": "Multi-Arm Retrieval and Memory Comparative Study",
+  "k_values": [
+    5,
+    10,
+    20
+  ],
+  "metadata": {
+    "anchor_cases": [
+      "psf__requests-1142",
+      "psf__requests-1327",
+      "psf__requests-1339"
+    ],
+    "cases_file": "eval\\cases\\requests_swe_bench_candidates.json",
+    "mock": true
+  },
+  "primary_k": 10,
+  "token_budget": 8000
+}

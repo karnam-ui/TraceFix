@@ -1,0 +1,72 @@
+{
+  "contract": "tracefix.verification",
+  "version": "0.1.0-draft",
+  "status": "draft-pending-workstream-b-review",
+  "checkpoint": "0-D-B1",
+  "note": "DRAFT. Sandboxed patch verification, execution limits, safety controls, and test result taxonomy owned by Workstream B.",
+  "verification_request": {
+    "case_id": "string",
+    "base_revision": "full git SHA",
+    "patch": "unified diff string",
+    "test_suite": {
+      "fail_to_pass": ["test identifiers expected to fail before fix and pass after"],
+      "pass_to_pass": ["test identifiers expected to remain passing (regression suite)"],
+      "runner": "pytest | unittest"
+    },
+    "limits": {
+      "timeout_seconds": "int > 0 (default 120)",
+      "max_output_bytes": "int > 0 (default 1048576)",
+      "max_memory_mb": "int > 0 (default 2048)"
+    },
+    "environment": {
+      "tier": "tier1_worktree | tier2_docker",
+      "network_enabled": false,
+      "scrub_host_secrets": true
+    }
+  },
+  "verification_status": [
+    "VERIFIED",
+    "TEST_FAILED",
+    "SETUP_FAILED",
+    "TIMEOUT",
+    "PATCH_REJECTED",
+    "ENVIRONMENT_ERROR"
+  ],
+  "status_definitions": {
+    "VERIFIED": "All fail_to_pass tests transitioned to PASS and 100% of pass_to_pass tests remained PASS.",
+    "TEST_FAILED": "Test suite executed, but one or more fail_to_pass tests did not pass, or a pass_to_pass regression occurred.",
+    "SETUP_FAILED": "Target environment could not prepare test dependencies or syntax error prevented test collection.",
+    "TIMEOUT": "Execution exceeded timeout_seconds.",
+    "PATCH_REJECTED": "Patch failed validation (prohibited file, path traversal, or syntax error).",
+    "ENVIRONMENT_ERROR": "Host / OS failure (e.g. disk full, permission denied creating worktree)."
+  },
+  "verification_result": {
+    "case_id": "string",
+    "base_revision": "full git SHA",
+    "patch_hash": "sha256 of candidate patch",
+    "sandbox_tier": "tier1_worktree | tier2_docker",
+    "status": "one of verification_status",
+    "exit_code": "int",
+    "test_counts": {
+      "passed": "int >= 0",
+      "failed": "int >= 0",
+      "skipped": "int >= 0",
+      "total": "int >= 0"
+    },
+    "passed_tests": ["string test ids"],
+    "failed_tests": ["string test ids"],
+    "duration_seconds": "float >= 0.0",
+    "timed_out": "bool",
+    "stdout_tail": "string (last N bytes of execution stdout)",
+    "stderr_tail": "string (last N bytes of execution stderr)",
+    "artifacts_uri": "optional URI / path to preserved run logs",
+    "executed_at": "ISO-8601 UTC"
+  },
+  "safety_controls": [
+    "Patches executed only in isolated disposable worktrees or containers.",
+    "Network disabled by default.",
+    "All host API keys, tokens, and credentials scrubbed from child process environment.",
+    "Execution commands strictly constrained to allowlisted test runners (pytest, python -m unittest).",
+    "Model cannot provide or alter execution shell commands."
+  ]
+}

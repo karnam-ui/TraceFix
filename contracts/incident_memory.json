@@ -1,0 +1,60 @@
+{
+  "contract": "tracefix.incident_memory",
+  "version": "0.1.0-draft",
+  "status": "draft-pending-workstream-b-review",
+  "checkpoint": "0-D-B1",
+  "note": "DRAFT. Verified incident memory lifecycle, eligibility gate, record schema, and retrieval adapter owned by Workstream B.",
+  "lifecycle_states": [
+    "OBSERVED",
+    "ATTEMPTED",
+    "VERIFIED",
+    "REJECTED"
+  ],
+  "state_definitions": {
+    "OBSERVED": "Bug report and initial repository context ingested and recorded.",
+    "ATTEMPTED": "Repair candidate generated and submitted to verification sandbox.",
+    "VERIFIED": "Candidate patch executed in isolated sandbox and passed 100% of declared verification criteria.",
+    "REJECTED": "Candidate failed verification, regressed existing tests, or violated safety policies; ineligible for reuse."
+  },
+  "incident_record": {
+    "incident_id": "string; canonical identifier (e.g. inc_<sha256(case_id + revision + patch_hash)[:16]>)",
+    "case_id": "string",
+    "repo": "normalized repository URL",
+    "revision": "full git SHA of pre-fix snapshot",
+    "bug_report": "string issue text",
+    "retrieved_evidence_ids": ["string evidence_ids from ContextManifest"],
+    "patch_diff": "string unified diff",
+    "patch_hash": "sha256 of candidate patch",
+    "verification_evidence": {
+      "status": "tracefix.verification status",
+      "test_suite": "string identifier of executed tests",
+      "exit_code": "int",
+      "duration_seconds": "float",
+      "executed_at": "ISO-8601 UTC"
+    },
+    "model_metadata": {
+      "provider": "string",
+      "model": "string",
+      "temperature": "float"
+    },
+    "root_cause_explanation": "optional model-generated explanation",
+    "explanation_verified": "bool; strictly false by default unless verified by independent proof",
+    "lifecycle_status": "OBSERVED | ATTEMPTED | VERIFIED | REJECTED",
+    "eligibility_status": "ELIGIBLE | INELIGIBLE",
+    "rejection_reason": "optional string explaining why record is ineligible for reuse",
+    "created_at": "ISO-8601 UTC"
+  },
+  "eligibility_rules": [
+    "Rule 1 (Verification Requirement): Only records with lifecycle_status='VERIFIED' and verification_evidence.status='VERIFIED' may be marked ELIGIBLE for retrieval reuse.",
+    "Rule 2 (Explanation Integrity): An unverified root-cause explanation must NEVER be presented as established ground truth (explanation_verified must be false).",
+    "Rule 3 (Negative Evidence Retention): Failed repair attempts are retained with lifecycle_status='REJECTED' and eligibility_status='INELIGIBLE' for negative-pattern mining, but must never be retrieved as positive fix examples.",
+    "Rule 4 (Chronological Isolation): A memory record is strictly excluded from retrieval if its created_at timestamp is >= the query evaluation timestamp, preventing future leakage during historical replay."
+  ],
+  "retrieval_interface": {
+    "method": "query_eligible_memories(query_text: str, repo: str, as_of_time: str, top_k: int) -> list[IncidentRecord]",
+    "filters": [
+      "eligibility_status == 'ELIGIBLE'",
+      "created_at < as_of_time"
+    ]
+  }
+}
