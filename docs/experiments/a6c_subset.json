@@ -7,9 +7,9 @@
   "code_revision": "f42a61bbcca470b429d6d9debd3dd382b3c76c70",
   "selected": [
     {"case_id": "psf__requests-1142", "revision": "22623bd8c265b78b161542663ee980738441c307", "gt": ["requests.models.PreparedRequest.prepare_content_length"]},
-    {"case_id": "psf__requests-1376", "revision": "2aabb71d9d8a6a0de0ba2b92e43c851f064e4f67", "gt": ["requests.models.PreparedRequest.prepare_url"]},
-    {"case_id": "psf__requests-1537", "revision": "d8268fb7f5c65df1f8dbec0756b0356100e3fc8b", "gt": ["requests.models.RequestEncodingMixin._encode_files"]},
-    {"case_id": "psf__requests-1724", "revision": "1ba83c47f25f4a2ac7f3f45d4f3f5b243d53992f", "gt": ["requests.sessions.Session.request"]},
-    {"case_id": "psf__requests-1766", "revision": "84773555737d0f983569300cd62c9940f52155f2", "gt": ["requests.auth.HTTPDigestAuth.build_digest_header"]}
+    {"case_id": "psf__requests-1376", "revision": "2aabb71dc8db434122c2e00c9d1313c6f368ce1c", "gt": ["requests.models.PreparedRequest.prepare_url"]},
+    {"case_id": "psf__requests-1537", "revision": "d8268fb7b44da7b8aa225eb1ca6fbdb4f9dc2457", "gt": ["requests.models.RequestEncodingMixin._encode_files"]},
+    {"case_id": "psf__requests-1724", "revision": "1ba83c47ce7b177efe90d5f51f7760680f72eda0", "gt": ["requests.sessions.Session.request"]},
+    {"case_id": "psf__requests-1766", "revision": "847735553aeda6e6633f2b32e14ba14ba86887a4", "gt": ["requests.auth.HTTPDigestAuth.build_digest_header"]}
   ]
 }

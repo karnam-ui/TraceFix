@@ -32,10 +32,11 @@ def test_worktree_sandbox_lifecycle() -> None:
             "--- a/README.md\n"
             "+++ b/README.md\n"
             "@@ -1,3 +1,4 @@\n"
-            " # TraceFix\n"
+            " # TraceFix: Graph-Native Bug Resolution & Verified Repair Engine\n"
             "+<!-- Sandboxed verification test line -->\n"
             " \n"
-            " TraceFix is a graph-native bug-resolution agent. This repository contains\n"
+            " TraceFix is an automated software repair and repository intelligence system "
+            "designed to answer a central research question:\n"
         )
         assert sandbox.apply_patch(patch_diff)
 

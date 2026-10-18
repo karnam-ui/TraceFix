@@ -106,7 +106,17 @@ def _rows(result: Any) -> list[dict[str, Any]]:
     if result is None:
         return []
     if isinstance(result, list):
-        return result
+        if not result or isinstance(result[0], dict):
+            return result
+        return [{"value": r} if not isinstance(r, dict) else r for r in result]
     if hasattr(result, "result_set"):
-        return list(result.result_set)
+        header = getattr(result, "header", None)
+        if header and result.result_set:
+            col_names = [
+                col[1] if isinstance(col, (list, tuple)) and len(col) > 1 else str(col)
+                for col in header
+            ]
+            return [dict(zip(col_names, row, strict=False)) for row in result.result_set]
+        if not result.result_set:
+            return []
     return list(result)

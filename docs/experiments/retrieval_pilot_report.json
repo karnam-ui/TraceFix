@@ -1,0 +1,1107 @@
+{
+  "aggregates": {
+    "arm_a_lexical": {
+      "cases_evaluated": 5,
+      "context_budget": {
+        "budget_tokens": 4000,
+        "mean_tokens_used": 3764.6,
+        "mean_utilization": 0.9412
+      },
+      "file_hit_at_k": {
+        "10": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "20": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "5": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        }
+      },
+      "function_hit_at_k": {
+        "10": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        },
+        "20": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "5": {
+          "denominator": 5,
+          "hits": 0,
+          "rate": 0.0
+        }
+      },
+      "function_recall_macro": {
+        "10": 0.4,
+        "20": 0.8,
+        "5": 0.0
+      },
+      "function_recall_micro": {
+        "10": 0.4,
+        "20": 0.8,
+        "5": 0.0
+      },
+      "latency": {
+        "max_ms": 35.19,
+        "mean_ms": 10.67,
+        "min_ms": 1.89
+      },
+      "mrr": 0.0871,
+      "name": "Arm A \u2014 Lexical (BM25)"
+    },
+    "arm_b_graph_guided": {
+      "cases_evaluated": 5,
+      "context_budget": {
+        "budget_tokens": 4000,
+        "mean_tokens_used": 2673.2,
+        "mean_utilization": 0.6683
+      },
+      "file_hit_at_k": {
+        "10": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "20": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "5": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        }
+      },
+      "function_hit_at_k": {
+        "10": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        },
+        "20": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        },
+        "5": {
+          "denominator": 5,
+          "hits": 0,
+          "rate": 0.0
+        }
+      },
+      "function_recall_macro": {
+        "10": 0.4,
+        "20": 0.4,
+        "5": 0.0
+      },
+      "function_recall_micro": {
+        "10": 0.4,
+        "20": 0.4,
+        "5": 0.0
+      },
+      "latency": {
+        "max_ms": 34.76,
+        "mean_ms": 10.51,
+        "min_ms": 2.05
+      },
+      "mrr": 0.0536,
+      "name": "Arm B \u2014 Graph-Guided (FalkorDB Live)"
+    },
+    "arm_c_fused_rrf": {
+      "cases_evaluated": 5,
+      "context_budget": {
+        "budget_tokens": 4000,
+        "mean_tokens_used": 3764.6,
+        "mean_utilization": 0.9412
+      },
+      "file_hit_at_k": {
+        "10": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "20": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "5": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        }
+      },
+      "function_hit_at_k": {
+        "10": {
+          "denominator": 5,
+          "hits": 2,
+          "rate": 0.4
+        },
+        "20": {
+          "denominator": 5,
+          "hits": 4,
+          "rate": 0.8
+        },
+        "5": {
+          "denominator": 5,
+          "hits": 0,
+          "rate": 0.0
+        }
+      },
+      "function_recall_macro": {
+        "10": 0.4,
+        "20": 0.8,
+        "5": 0.0
+      },
+      "function_recall_micro": {
+        "10": 0.4,
+        "20": 0.8,
+        "5": 0.0
+      },
+      "latency": {
+        "max_ms": 70.04,
+        "mean_ms": 20.89,
+        "min_ms": 3.21
+      },
+      "mrr": 0.0871,
+      "name": "Arm C \u2014 Fused RRF (Lexical + Graph)"
+    }
+  },
+  "arms_evaluated": [
+    {
+      "arm_id": "arm_a_lexical",
+      "name": "Arm A \u2014 Lexical (BM25)"
+    },
+    {
+      "arm_id": "arm_b_graph_guided",
+      "name": "Arm B \u2014 Graph-Guided (FalkorDB Live)"
+    },
+    {
+      "arm_id": "arm_c_fused_rrf",
+      "name": "Arm C \u2014 Fused RRF (Lexical + Graph)"
+    }
+  ],
+  "case_details": {
+    "arm_a_lexical": [
+      {
+        "case_id": "psf__requests-1142",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9968,
+          "duplicates": 0,
+          "excluded_count": 7,
+          "selected_count": 13,
+          "tokens_used": 3987
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "file_ranks": [
+          3,
+          4,
+          7,
+          13,
+          14,
+          16
+        ],
+        "file_recall_at_k": {
+          "10": 3.0,
+          "20": 6.0,
+          "5": 2.0
+        },
+        "first_file_rank": 3,
+        "first_fn_rank": 7,
+        "fn_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          7
+        ],
+        "fn_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.PreparedRequest.prepare_content_length"
+        ],
+        "latency_ms": 1.89,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.14285714285714285,
+        "retrieved_count": 20,
+        "revision": "22623bd8c265b78b161542663ee980738441c307",
+        "status": "ok",
+        "top_5_symbols": [
+          "requests.adapters.HTTPAdapter.send",
+          "requests.cookies.get_cookie_header",
+          "requests.models.PreparedRequest.prepare_body",
+          "requests.models.Response.__init__",
+          "requests.packages.urllib3.request.RequestMethods.request_encode_body"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1376",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.7492,
+          "duplicates": 0,
+          "excluded_count": 0,
+          "selected_count": 20,
+          "tokens_used": 2997
+        },
+        "file_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "file_ranks": [],
+        "file_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "first_file_rank": null,
+        "first_fn_rank": null,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "fn_ranks": [],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.PreparedRequest.prepare_url"
+        ],
+        "latency_ms": 2.46,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.0,
+        "retrieved_count": 20,
+        "revision": "2aabb71dc8db434122c2e00c9d1313c6f368ce1c",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_custom_content_type",
+          "test_requests.RequestsTestCase.test_different_encodings_dont_break_post",
+          "test_requests.RequestsTestCase.test_POSTBIN_GET_POST_FILES"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1537",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9898,
+          "duplicates": 0,
+          "excluded_count": 4,
+          "selected_count": 16,
+          "tokens_used": 3959
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "file_ranks": [
+          9,
+          11,
+          16,
+          19
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 4.0,
+          "5": 0.0
+        },
+        "first_file_rank": 9,
+        "first_fn_rank": 11,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          11
+        ],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.RequestEncodingMixin._encode_files"
+        ],
+        "latency_ms": 9.24,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.09090909090909091,
+        "retrieved_count": 20,
+        "revision": "d8268fb7b44da7b8aa225eb1ca6fbdb4f9dc2457",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_POSTBIN_GET_POST_FILES_WITH_DATA",
+          "test_requests.RequestsTestCase.test_custom_content_type",
+          "requests.api.post"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1724",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9798,
+          "duplicates": 0,
+          "excluded_count": 7,
+          "selected_count": 13,
+          "tokens_used": 3919
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "file_ranks": [
+          5,
+          13,
+          17,
+          18
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 4.0,
+          "5": 1.0
+        },
+        "first_file_rank": 5,
+        "first_fn_rank": 13,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          13
+        ],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/sessions.py"
+        ],
+        "gt_functions": [
+          "requests.sessions.Session.request"
+        ],
+        "latency_ms": 35.19,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.07692307692307693,
+        "retrieved_count": 20,
+        "revision": "1ba83c47ce7b177efe90d5f51f7760680f72eda0",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "requests.packages.urllib3.connectionpool.HTTPConnectionPool._make_request",
+          "requests.api.request",
+          "requests.sessions.Session.post"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1766",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9902,
+          "duplicates": 0,
+          "excluded_count": 10,
+          "selected_count": 10,
+          "tokens_used": 3961
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "file_ranks": [
+          8
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "first_file_rank": 8,
+        "first_fn_rank": 8,
+        "fn_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          8
+        ],
+        "fn_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/auth.py"
+        ],
+        "gt_functions": [
+          "requests.auth.HTTPDigestAuth.build_digest_header"
+        ],
+        "latency_ms": 4.58,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.125,
+        "retrieved_count": 20,
+        "revision": "847735553aeda6e6633f2b32e14ba14ba86887a4",
+        "status": "ok",
+        "top_5_symbols": [
+          "requests.utils.unquote_header_value",
+          "requests.utils.parse_list_header",
+          "requests.sessions.Session.__init__",
+          "requests.packages.urllib3.util.parse_url",
+          "requests.adapters.HTTPAdapter.proxy_headers"
+        ]
+      }
+    ],
+    "arm_b_graph_guided": [
+      {
+        "case_id": "psf__requests-1142",
+        "complete": true,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.7963,
+          "duplicates": 0,
+          "excluded_count": 0,
+          "selected_count": 10,
+          "tokens_used": 3185
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "file_ranks": [
+          3,
+          4,
+          7
+        ],
+        "file_recall_at_k": {
+          "10": 3.0,
+          "20": 3.0,
+          "5": 2.0
+        },
+        "first_file_rank": 3,
+        "first_fn_rank": 7,
+        "fn_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          7
+        ],
+        "fn_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.PreparedRequest.prepare_content_length"
+        ],
+        "latency_ms": 2.05,
+        "partial_reason": null,
+        "reciprocal_rank_fn": 0.14285714285714285,
+        "retrieved_count": 10,
+        "revision": "22623bd8c265b78b161542663ee980738441c307",
+        "status": "ok",
+        "top_5_symbols": [
+          "requests.adapters.HTTPAdapter.send",
+          "requests.cookies.get_cookie_header",
+          "requests.models.PreparedRequest.prepare_body",
+          "requests.models.Response.__init__",
+          "requests.packages.urllib3.request.RequestMethods.request_encode_body"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1376",
+        "complete": true,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.3063,
+          "duplicates": 0,
+          "excluded_count": 0,
+          "selected_count": 10,
+          "tokens_used": 1225
+        },
+        "file_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "file_ranks": [],
+        "file_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "first_file_rank": null,
+        "first_fn_rank": null,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "fn_ranks": [],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.PreparedRequest.prepare_url"
+        ],
+        "latency_ms": 2.13,
+        "partial_reason": null,
+        "reciprocal_rank_fn": 0.0,
+        "retrieved_count": 10,
+        "revision": "2aabb71dc8db434122c2e00c9d1313c6f368ce1c",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_custom_content_type",
+          "test_requests.RequestsTestCase.test_different_encodings_dont_break_post",
+          "test_requests.RequestsTestCase.test_POSTBIN_GET_POST_FILES"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1537",
+        "complete": true,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.5515,
+          "duplicates": 0,
+          "excluded_count": 0,
+          "selected_count": 10,
+          "tokens_used": 2206
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "file_ranks": [
+          9
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "first_file_rank": 9,
+        "first_fn_rank": null,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "fn_ranks": [],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.RequestEncodingMixin._encode_files"
+        ],
+        "latency_ms": 9.06,
+        "partial_reason": null,
+        "reciprocal_rank_fn": 0.0,
+        "retrieved_count": 10,
+        "revision": "d8268fb7b44da7b8aa225eb1ca6fbdb4f9dc2457",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_POSTBIN_GET_POST_FILES_WITH_DATA",
+          "test_requests.RequestsTestCase.test_custom_content_type",
+          "requests.api.post"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1724",
+        "complete": true,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.7167,
+          "duplicates": 0,
+          "excluded_count": 0,
+          "selected_count": 10,
+          "tokens_used": 2867
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "file_ranks": [
+          5
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 1.0
+        },
+        "first_file_rank": 5,
+        "first_fn_rank": null,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "fn_ranks": [],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/sessions.py"
+        ],
+        "gt_functions": [
+          "requests.sessions.Session.request"
+        ],
+        "latency_ms": 34.76,
+        "partial_reason": null,
+        "reciprocal_rank_fn": 0.0,
+        "retrieved_count": 10,
+        "revision": "1ba83c47ce7b177efe90d5f51f7760680f72eda0",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "requests.packages.urllib3.connectionpool.HTTPConnectionPool._make_request",
+          "requests.api.request",
+          "requests.sessions.Session.post"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1766",
+        "complete": true,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9708,
+          "duplicates": 0,
+          "excluded_count": 1,
+          "selected_count": 9,
+          "tokens_used": 3883
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "file_ranks": [
+          8
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "first_file_rank": 8,
+        "first_fn_rank": 8,
+        "fn_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          8
+        ],
+        "fn_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/auth.py"
+        ],
+        "gt_functions": [
+          "requests.auth.HTTPDigestAuth.build_digest_header"
+        ],
+        "latency_ms": 4.53,
+        "partial_reason": null,
+        "reciprocal_rank_fn": 0.125,
+        "retrieved_count": 10,
+        "revision": "847735553aeda6e6633f2b32e14ba14ba86887a4",
+        "status": "ok",
+        "top_5_symbols": [
+          "requests.utils.unquote_header_value",
+          "requests.utils.parse_list_header",
+          "requests.sessions.Session.__init__",
+          "requests.packages.urllib3.util.parse_url",
+          "requests.adapters.HTTPAdapter.proxy_headers"
+        ]
+      }
+    ],
+    "arm_c_fused_rrf": [
+      {
+        "case_id": "psf__requests-1142",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9968,
+          "duplicates": 0,
+          "excluded_count": 7,
+          "selected_count": 13,
+          "tokens_used": 3987
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "file_ranks": [
+          3,
+          4,
+          7,
+          13,
+          14,
+          16
+        ],
+        "file_recall_at_k": {
+          "10": 3.0,
+          "20": 6.0,
+          "5": 2.0
+        },
+        "first_file_rank": 3,
+        "first_fn_rank": 7,
+        "fn_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          7
+        ],
+        "fn_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.PreparedRequest.prepare_content_length"
+        ],
+        "latency_ms": 3.21,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.14285714285714285,
+        "retrieved_count": 20,
+        "revision": "22623bd8c265b78b161542663ee980738441c307",
+        "status": "ok",
+        "top_5_symbols": [
+          "requests.adapters.HTTPAdapter.send",
+          "requests.cookies.get_cookie_header",
+          "requests.models.PreparedRequest.prepare_body",
+          "requests.models.Response.__init__",
+          "requests.packages.urllib3.request.RequestMethods.request_encode_body"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1376",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.7492,
+          "duplicates": 0,
+          "excluded_count": 0,
+          "selected_count": 20,
+          "tokens_used": 2997
+        },
+        "file_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "file_ranks": [],
+        "file_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "first_file_rank": null,
+        "first_fn_rank": null,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": false,
+          "5": false
+        },
+        "fn_ranks": [],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 0.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.PreparedRequest.prepare_url"
+        ],
+        "latency_ms": 4.47,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.0,
+        "retrieved_count": 20,
+        "revision": "2aabb71dc8db434122c2e00c9d1313c6f368ce1c",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_custom_content_type",
+          "test_requests.RequestsTestCase.test_different_encodings_dont_break_post",
+          "test_requests.RequestsTestCase.test_POSTBIN_GET_POST_FILES"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1537",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9898,
+          "duplicates": 0,
+          "excluded_count": 4,
+          "selected_count": 16,
+          "tokens_used": 3959
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "file_ranks": [
+          9,
+          11,
+          16,
+          19
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 4.0,
+          "5": 0.0
+        },
+        "first_file_rank": 9,
+        "first_fn_rank": 11,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          11
+        ],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/models.py"
+        ],
+        "gt_functions": [
+          "requests.models.RequestEncodingMixin._encode_files"
+        ],
+        "latency_ms": 18.07,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.09090909090909091,
+        "retrieved_count": 20,
+        "revision": "d8268fb7b44da7b8aa225eb1ca6fbdb4f9dc2457",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_POSTBIN_GET_POST_FILES_WITH_DATA",
+          "test_requests.RequestsTestCase.test_custom_content_type",
+          "requests.api.post"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1724",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9798,
+          "duplicates": 0,
+          "excluded_count": 7,
+          "selected_count": 13,
+          "tokens_used": 3919
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": true
+        },
+        "file_ranks": [
+          5,
+          13,
+          17,
+          18
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 4.0,
+          "5": 1.0
+        },
+        "first_file_rank": 5,
+        "first_fn_rank": 13,
+        "fn_hit_at_k": {
+          "10": false,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          13
+        ],
+        "fn_recall_at_k": {
+          "10": 0.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/sessions.py"
+        ],
+        "gt_functions": [
+          "requests.sessions.Session.request"
+        ],
+        "latency_ms": 70.04,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.07692307692307693,
+        "retrieved_count": 20,
+        "revision": "1ba83c47ce7b177efe90d5f51f7760680f72eda0",
+        "status": "ok",
+        "top_5_symbols": [
+          "test_requests.RequestsTestCase.test_unicode_multipart_post",
+          "test_requests.RequestsTestCase.test_unicode_multipart_post_fieldnames",
+          "requests.packages.urllib3.connectionpool.HTTPConnectionPool._make_request",
+          "requests.api.request",
+          "requests.sessions.Session.post"
+        ]
+      },
+      {
+        "case_id": "psf__requests-1766",
+        "complete": false,
+        "context_selection": {
+          "budget_tokens": 4000,
+          "budget_utilization": 0.9902,
+          "duplicates": 0,
+          "excluded_count": 10,
+          "selected_count": 10,
+          "tokens_used": 3961
+        },
+        "file_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "file_ranks": [
+          8
+        ],
+        "file_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "first_file_rank": 8,
+        "first_fn_rank": 8,
+        "fn_hit_at_k": {
+          "10": true,
+          "20": true,
+          "5": false
+        },
+        "fn_ranks": [
+          8
+        ],
+        "fn_recall_at_k": {
+          "10": 1.0,
+          "20": 1.0,
+          "5": 0.0
+        },
+        "gt_files": [
+          "requests/auth.py"
+        ],
+        "gt_functions": [
+          "requests.auth.HTTPDigestAuth.build_digest_header"
+        ],
+        "latency_ms": 8.64,
+        "partial_reason": "limit_reached",
+        "reciprocal_rank_fn": 0.125,
+        "retrieved_count": 20,
+        "revision": "847735553aeda6e6633f2b32e14ba14ba86887a4",
+        "status": "ok",
+        "top_5_symbols": [
+          "requests.utils.unquote_header_value",
+          "requests.utils.parse_list_header",
+          "requests.sessions.Session.__init__",
+          "requests.packages.urllib3.util.parse_url",
+          "requests.adapters.HTTPAdapter.proxy_headers"
+        ]
+      }
+    ]
+  },
+  "dataset_fingerprint": "da1c89d31006ac65753d31fcb719b457ce5cb000e14e0735126018a90e350858",
+  "raw_rows_sha256": "ab348fe92029fa3b5a2d52b1fa2e71916bb43ead7a84deb067cb2495f74ac589",
+  "selected_case_ids": [
+    "psf__requests-1142",
+    "psf__requests-1376",
+    "psf__requests-1537",
+    "psf__requests-1724",
+    "psf__requests-1766"
+  ],
+  "title": "TraceFix Five-Case Controlled Retrieval Pilot Report",
+  "token_budget": 4000
+}
