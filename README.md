@@ -39,7 +39,30 @@ scripts/
 docs/
   workstreams/                 # Audit reports and implementation plans for Workstreams A & B
   experiments/                 # Generated Markdown, LaTeX, and JSON comparative evaluation reports
+frontend/                      # React / TypeScript investigation workspace
 ```
+
+---
+
+## Interactive Investigation Workspace & UI
+
+TraceFix includes a technical React/TypeScript developer investigation workspace:
+- **Investigation Lifecycle:** Real-time tracking from bug report acceptance through retrieval, context budgeting, AST safety validation, and sandbox verification.
+- **Evidence Explorer:** Filterable ranked evidence items with ground-truth function/file match indicators.
+- **Context Budget Accounting:** Accurate token tracking against 2k/4k/8k limits with explicit candidate exclusion reasons.
+- **Unified Diff & Verification:** Syntax-highlighted patch diffs, path traversal bounds checking, and test execution outcomes.
+- **Part B Incident Memory:** Historical incident browser with strict chronological leakage isolation.
+- **FalkorDB Graph Explorer:** Interactive SVG graph visualization of historical base-revision property graphs.
+
+### Quick Start (Single Unified Server)
+```sh
+# Build the frontend bundle
+npm --prefix frontend run build
+
+# Start the unified FastAPI server (serves API and UI on port 8000)
+uv run uvicorn tracefix.api.app:app --host 0.0.0.0 --port 8000
+```
+Open [http://localhost:8000](http://localhost:8000) in your browser. For frontend development mode with hot-reloading, run `npm --prefix frontend run dev` (proxies to backend at port 8000). See `docs/ui_integration.md` for full API details.
 
 ---
 
